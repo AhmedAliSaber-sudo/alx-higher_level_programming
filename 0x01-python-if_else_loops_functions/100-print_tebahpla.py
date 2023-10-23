@@ -5,5 +5,4 @@ for i in range(0, 26):
         ch = (chr(ch - ord('a') + ord('A')))
     else:
         ch = chr(ch)
-
     print("{}".format(ch), end="")
