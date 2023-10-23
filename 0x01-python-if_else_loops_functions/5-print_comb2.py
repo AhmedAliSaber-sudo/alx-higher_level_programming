@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-output = ""
-for num in range(0, 100):
-    if num != 100:
-        if num < 10:
-            output += "0{:d}, ".format(num)
+result = ""
+for number in range(0, 100):
+    if number != 100:
+        if number < 10:
+            result += "0{:d}, ".format(number)
         else:
-            output += "{:d}, ".format(num)
-        if num == 99:
-            output = output.rstrip(', ')
-print(output)
+            result += "{:d}, ".format(number)
+        if number == 99:
+            result = result.rstrip(', ')
+print(result)
