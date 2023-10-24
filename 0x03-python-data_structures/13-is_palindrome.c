@@ -32,17 +32,10 @@ int is_palindrome(listint_t **head)
 		list = list->next;
 	}
 
-	while (size < i / 2)
-		{
-			if (value[size] == value[size - i - 1])
-				i++;
-			else
-				return (0);
-		}
-	/*for (i = 0; i <= (size/2); i++)
+	for (i = 0; i <= (size/2); i++)
 	{
 		if (value[i] != value[size - i - 1])
 			return (0);
-	}*/
+	}
 	return (1);
 }
