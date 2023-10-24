@@ -1,34 +1,19 @@
 #!/usr/bin/python3
 """
 Module 6-square
-Defines class Square with private size and position; and public area
-Can access and update size and position
-Can print to stdout the square using #'s
 """
 
 
 class Square:
     """
     class Square definition
-
-    Args:
-        size (int): size of a side in square
-
-    Functions:
-        __init__(self, size, position)
-        size(self)
-        size(self, value)
-        position(self)
-        position(self, value)
-        area(self)
-        my_print(self)
     """
 
     def __init__(self, size=0, position=(0, 0)):
         """
         Initializes square
 
-        Attributes:
+        Args:
             size (int): defaults to 0 if none; don't use __size to call setter
             position (int): tuple of two positive integers
         """
@@ -38,7 +23,8 @@ class Square:
     @property
     def size(self):
         """"
-        Getter
+        Get the size of the square.
+
 
         Return: size
         """
@@ -47,7 +33,8 @@ class Square:
     @size.setter
     def size(self, value):
         """
-        Setter
+        set the size of the square.
+
 
         Args:
             value: sets size to value if int and >= 0
@@ -62,7 +49,7 @@ class Square:
     @property
     def position(self):
         """"
-        Getter
+        Get
 
         Return: position
         """
@@ -71,10 +58,8 @@ class Square:
     @position.setter
     def position(self, value):
         """
-        Setter
+        Set
 
-        Args:
-            value: sets position to tuple if value is tuple of 2 positive ints
         """
         if type(value) is not tuple or len(value) != 2 or \
            type(value[0]) is not int or type(value[1]) is not int or \
@@ -87,16 +72,16 @@ class Square:
         """
         Calculates area of square
 
-        Returns:
-            area
+        Returns the current square area.
         """
         return (self.__size)**2
 
     def my_print(self):
-        if self.__size == 0:
-            print("")
+        if self.__size > 0:
+            for y in range(self.__position[1]):
+                print()
+            for x in range(self.__size):
+                print(' ' * self.__position[0], end='')
+                print('#' * self.__size)
         else:
-            print("\n" * self.__position[1], end="")
-            print("\n".join([" " * self.__position[0] +
-                             "#" * self.__size
-                             for rows in range(self.__size)]))
+            print()
