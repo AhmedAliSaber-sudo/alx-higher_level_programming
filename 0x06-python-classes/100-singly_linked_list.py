@@ -81,7 +81,7 @@ class SinglyLinkedList:
             sll_string += str(node.data) + "\n"
             node = node.next_node
 
-        return sll_string
+        return sll_string[:-1]
 
     def sorted_insert(self, value):
         """
@@ -90,19 +90,11 @@ class SinglyLinkedList:
         Args:
         value: int data for node
         """
-        new_node = Node(value)
-        if self.__head is None:
-            self.__head = new_node
-            return
+        node = self.__head
 
-        tmp = self.__head
-        if new_node.data < tmp.data:
-            new_node.next_node = self.__head
-            self.__head = new_node
-            return
-
-        while (tmp.next_node is not None) and (new_node.data > tmp.next_node.data):
-            tmp = tmp.next_node
-        new_node.next_node = tmp.next_node
-        tmp.next_node = new_node
-        return
+        if node is None or self.__head.data >= value:
+            self.__head = Node(value, self.__head)
+        else:
+            while node.next_node is not None and node.next_node.data < value:
+                node = node.next_node
+            node.next_node = Node(value, node.next_node)
