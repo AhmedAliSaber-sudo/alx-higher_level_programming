@@ -1,41 +1,48 @@
 #include "lists.h"
 
 /**
- * is_palindrome - determine if singly linked list is palindrome
- * @head: pointer to head of singly linked list
+ * is_palindrome - determine if singly linked list is palindrome.
+ * @head: pointer to the head of linked list.
  * Return: 0 if not, 1 if palindrome
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *tmp = *head;
+	listint_t *list = *head;
 	unsigned int size = 0, i = 0;
-	int data[10240];
+	int value[10240];
 
-	if (head == NULL) /* non-existing list is not */
+	if (!head)
 		return (0);
 
-	if (*head == NULL) /* empty list is palindrome */
+	if (!*head)
 		return (1);
 
-	while (tmp) /* find size of linked list */
+	while (list)
 	{
-		tmp = tmp->next;
+		list = list->next;
 		size += 1;
 	}
-	if (size == 1) /* single node list is palindrome */
+	if (size == 1)
 		return (1);
 
-	tmp = *head;
-	while (tmp) /* pull node data into array to compare */
+	list = *head;
+	while (list)
 	{
-		data[i++] = tmp->n;
-		tmp = tmp->next;
+		value[i++] = list->n;
+		list = list->next;
 	}
 
-	for (i = 0; i <= (size/2); i++)
+	while (size < i / 2)
+		{
+			if (value[size] == value[size - i - 1])
+				i++;
+			else
+				return (0);
+		}
+	/*for (i = 0; i <= (size/2); i++)
 	{
-		if (data[i] != data[size - i - 1])
+		if (value[i] != value[size - i - 1])
 			return (0);
-	}
+	}*/
 	return (1);
 }
