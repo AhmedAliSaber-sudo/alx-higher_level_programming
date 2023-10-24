@@ -15,4 +15,4 @@ if __name__ == "__main__":
         print("Unknown operator. Available operators: +, -, * and /")
         exit(1)
     else:
-        print("{:d} {:s} {:d} = {:d}".format(a, op, b, f[op](a, b)))
+        print("{:d} {:s} {:d} = {:d}".format(a, op, b, operations[op](a, b)))
