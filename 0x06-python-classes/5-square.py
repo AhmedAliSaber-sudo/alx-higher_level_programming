@@ -1,32 +1,19 @@
 #!/usr/bin/python3
 """
 Module 5-square
-Defines class Square with private size and public area
-Can access and update size
-Can print to stdout the square using #'s
 """
 
 
 class Square:
     """
     class Square definition
-
-    Args:
-        size (int): size of a side in square
-
-    Functions:
-        __init__(self, size)
-        size(self)
-        size(self, value)
-        area(self)
-        print(self)
     """
 
     def __init__(self, size=0):
         """
         Initializes square
 
-        Attributes:
+        Args:
             size (int): defaults to 0 if none; don't use __size to call setter
         """
         self.size = size
@@ -34,7 +21,7 @@ class Square:
     @property
     def size(self):
         """"
-        Getter
+        Get the size of the square.
 
         Return: size
         """
@@ -43,7 +30,7 @@ class Square:
     @size.setter
     def size(self, value):
         """
-        Setter
+        Set the size of the square.
 
         Args:
             value: sets size to value if int and >= 0
@@ -57,15 +44,18 @@ class Square:
 
     def area(self):
         """
-        Calculates area of square
+        Calculates area of square.
 
-        Returns:
-            area
+        Returns the current square area.
         """
         return (self.__size)**2
 
     def my_print(self):
         """
-        Prints square with #'s
+        Prints square with # char
         """
-        print("\n".join(["#" * self.__size for rows in range(self.__size)]))
+        if self.__size > 0:
+            for i in range(self.__size):
+                print('#' * self.__size)
+        else:
+            print()
